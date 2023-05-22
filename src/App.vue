@@ -1,6 +1,8 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+import TuForm from './components/TuForm.vue'
+import TuParent from './components/TuParent.vue'
 </script>
 
 <template>
@@ -14,6 +16,10 @@ import TheWelcome from './components/TheWelcome.vue'
 
   <main>
     <TheWelcome />
+    <TuForm />
+    <div>
+      <TuParent />
+    </div>
   </main>
 </template>
 
