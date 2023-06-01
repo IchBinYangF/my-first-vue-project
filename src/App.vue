@@ -3,6 +3,23 @@ import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import TuForm from './components/TuForm.vue'
 import TuParent from './components/TuParent.vue'
+import { ref, computed } from 'vue'
+
+const routes = {
+  '/':TheWelcome,
+  '/tuform': TuForm,
+  '/tuparent': TuParent
+}
+
+const currentPath = ref(window.location.hash)
+window.addEventListener('hashchange', () => {
+  currentPath.value = window.location.hash
+})
+
+const currentView = computed(() => {
+  return routes[currentPath.value.slice(1) || '/'] || NotFound
+})
+
 </script>
 
 <template>
@@ -15,11 +32,10 @@ import TuParent from './components/TuParent.vue'
   </header>
 
   <main>
-    <TheWelcome />
-    <TuForm />
-    <div>
-      <TuParent />
-    </div>
+    <a href="#/">TheWelcome</a> |
+    <a href="#/tuform">TuForm</a> |
+    <a href="#/tuparent">TuParent</a>
+    <component :is="currentView" />
   </main>
 </template>
 
