@@ -27,3 +27,6 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### Hosted Website
+[a link](https://dev.d1y1t2kuizmb13.amplifyapp.com)
